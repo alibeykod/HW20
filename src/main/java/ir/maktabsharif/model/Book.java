@@ -2,6 +2,7 @@ package ir.maktabsharif.model;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -89,5 +90,17 @@ public class Book {
 
     public void setPublisherAddress(PublisherAddress publisherAddress) {
         this.publisherAddress = publisherAddress;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return publicationYear == book.publicationYear && Objects.equals(title, book.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, publicationYear);
     }
 }
