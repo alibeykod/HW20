@@ -47,14 +47,6 @@ public class Book {
     }
 
 
-    public String getISBN() {
-        return ISBN;
-    }
-
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
-    }
-
     public Book (){}
 
     public UUID getId() {
@@ -63,6 +55,14 @@ public class Book {
 
     public void setId(UUID id) {
         this.id = id;
+    }
+
+    public String getISBN() {
+        return ISBN;
+    }
+
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
     }
 
     public BookStockStatus getBookStockStatus() {
