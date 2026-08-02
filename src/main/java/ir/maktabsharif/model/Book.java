@@ -14,6 +14,9 @@ public class Book {
     @Column(name = "ID", unique = true, nullable = false , updatable = false)
     private UUID id;
 
+
+    private String ISBN;
+
     @Enumerated(value = EnumType.STRING)
     private BookStockStatus bookStockStatus;
 
@@ -34,12 +37,22 @@ public class Book {
     })
     private PublisherAddress publisherAddress;
 
-    public Book(BookStockStatus bookStockStatus , String title , int publicationYear , double price , PublisherAddress publisherAddress){
+    public Book(String ISBN , BookStockStatus bookStockStatus , String title , int publicationYear , double price , PublisherAddress publisherAddress){
+        this.ISBN = ISBN;
         this.bookStockStatus = bookStockStatus;
         this.title = title;
         this.publicationYear = publicationYear;
         this.price = price;
         this.publisherAddress = publisherAddress;
+    }
+
+
+    public String getISBN() {
+        return ISBN;
+    }
+
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
     }
 
     public Book (){}
@@ -96,18 +109,19 @@ public class Book {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return publicationYear == book.publicationYear && Objects.equals(title, book.title);
+        return Objects.equals(ISBN , book.ISBN) && publicationYear == book.publicationYear && Objects.equals(title, book.title);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, publicationYear);
+        return Objects.hash(ISBN , title, publicationYear);
     }
 
     @Override
     public String toString() {
         return "Book{" +
                 "id=" + id +
+                "ISBN=" + ISBN +
                 ", bookStockStatus=" + bookStockStatus +
                 ", title='" + title + '\'' +
                 ", publicationYear=" + publicationYear +
