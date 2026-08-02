@@ -24,6 +24,11 @@ public class Book {
     private double price;
 
     @Embedded
+    @AttributeOverrides({
+    @AttributeOverride( name = "city", column = @Column(name = "publisher_city")),
+    @AttributeOverride( name = "street", column = @Column(name = "publisher_street")),
+    @AttributeOverride( name = "postalCode", column = @Column(name = "publisher_postal_code"))
+    })
     private PublisherAddress publisherAddress;
 
 }
