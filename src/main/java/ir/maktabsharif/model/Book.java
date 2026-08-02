@@ -10,7 +10,7 @@ import java.util.UUID;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", unique = true, nullable = false)
+    @Column(name = "ID", unique = true, nullable = false , updatable = false)
     private UUID id;
 
     @Enumerated(value = EnumType.STRING)
@@ -19,8 +19,10 @@ public class Book {
     @Column(nullable = false)
     private String title;
 
+    @Column(nullable = false)
     private int publicationYear;
 
+    @Column(nullable = false)
     private double price;
 
     @Embedded
@@ -31,4 +33,13 @@ public class Book {
     })
     private PublisherAddress publisherAddress;
 
+    public Book(BookStockStatus bookStockStatus , String title , int publicationYear , double price , PublisherAddress publisherAddress){
+        this.bookStockStatus = bookStockStatus;
+        this.title = title;
+        this.publicationYear = publicationYear;
+        this.price = price;
+        this.publisherAddress = publisherAddress;
+    }
+
+    public Book (){}
 }
