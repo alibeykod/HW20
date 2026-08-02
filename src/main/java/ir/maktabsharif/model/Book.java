@@ -42,4 +42,52 @@ public class Book {
     }
 
     public Book (){}
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public BookStockStatus getBookStockStatus() {
+        return bookStockStatus;
+    }
+
+    public void setBookStockStatus(BookStockStatus bookStockStatus) {
+        this.bookStockStatus = bookStockStatus;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getPublicationYear() {
+        return publicationYear;
+    }
+
+    public void setPublicationYear(int publicationYear) {
+        this.publicationYear = publicationYear;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public PublisherAddress getPublisherAddress() {
+        return publisherAddress;
+    }
+
+    public void setPublisherAddress(PublisherAddress publisherAddress) {
+        this.publisherAddress = publisherAddress;
+    }
 }
