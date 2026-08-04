@@ -12,9 +12,9 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", unique = true, nullable = false , updatable = false)
-    private UUID id;
+    private long id;
 
-
+    @Column(unique = true , nullable = true)
     private String ISBN;
 
     @Enumerated(value = EnumType.STRING)
@@ -49,11 +49,12 @@ public class Book {
 
     public Book (){}
 
-    public UUID getId() {
+
+    public long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(long id) {
         this.id = id;
     }
 
